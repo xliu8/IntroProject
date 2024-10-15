@@ -1,0 +1,39 @@
+<div class="card mb-3 w-100" >
+  <div class="row g-0">
+    <div class="col-md-4">
+    <%= image_tag 'rminedaisy-CKH-dXooPeE-unsplash.jpg', class: 'img-fluid rounded-start mx-100' %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 class="card-title"><%= @store.store_name %></h1>
+        <p class="card-text"><%= @store.address %>, <%= @store.city %>, <%= @store.zip_code %></p>
+        <p class="card-text"><small class="text-body-secondary"><%= @store.email %></small></p>
+        <p class="card-text"><small class="text-body-secondary"><%= @store.phone %></small></p>
+        <%= link_to 'Back' ,products_path, class:"btn btn-primary"%>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='mx-3'>
+  <h2>Store Inventory</h2>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @stocks.each do |stock| %>
+          <tr>
+            <td><%= link_to stock.product.product_name, product_path(stock.product) %></td>
+            <td><%= stock.quantity %></td>
+          </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+      <div class="pagination d-flex justify-content-center">
+      <%= paginate @stocks %>
+    </div>
+    </div>

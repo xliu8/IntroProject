@@ -1,0 +1,48 @@
+<div class='container mt-3'>
+<h3>Overview</h3>
+<p>For this project, I will use five specific tables from the Bike Store Database on Kaggle: products, category, stores, stocks, and brand. These tables will provide a streamlined view of the essential entities related to product management and availability across different stores. Below is an updated overview of the tables and columns required for the project:
+<a href="https://www.kaggle.com/datasets/dillonmyrick/bike-store-sample-database?resource=download&select=categories.csv" >Click here to check </a>
+</p>
+
+<div class="d-flex flex-row">
+  <div class="pe-2">
+    <h3>ERD</h3>
+    <%= image_tag 'ERD.png' , class:'w-auto' %>
+  </div>
+
+  <div>
+    <h3>Structure</h3>
+    <ul>
+      <h5>Products Table</h5>
+        <li>Columns: product_id, product_name, category_id, brand_id, price, model_year</li>
+        <li>Description: Contains information about the various products available in the bike store, including details like price, color, and size.</li>
+    </ul>
+    <ul>
+      <h5>Category Table</h5>
+        <li>Columns: category_id, category_name.</li>
+        <li>Description: Defines the different categories that the products belong to, such as bikes, components, and accessories.</li>
+    </ul>
+    <ul>
+      <h5>Stores Table</h5>
+        <li>Columns: store_id, store_name, phone, email, address, city, state, zip_code.</li>
+        <li>Description: Contains details about the different physical stores where products are sold.</li>
+    </ul>
+    <ul>
+      <h5>Stocks Table</h5>
+        <li>Columns: product_id, store_id, quantity.</li>
+        <li>Description: Tracks the number of items of each product available in each store. This table links products to stores and shows how much stock is available.</li>
+    </ul>
+    <ul>
+      <h5>Brand Table</h5>
+        <li>Columns: brand_id, brand_name.</li>
+        <li>Description: Stores information about the brands of the products</li>
+    </ul>
+    <ul>
+      <h5>Integration and Relationships</h5>
+        <li>Products and Category: The category_id field in both tables links products to their categories.</li>
+        <li>Products and Brand: The brand_id connects each product to its respective brand.</li>
+        <li>Products and Stocks: The product_id in the stocks table links products to their stock levels at different stores.</li>
+    </ul>
+  </div>
+</div>
+</div>

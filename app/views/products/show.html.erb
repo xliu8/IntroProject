@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header">
+    <p>Brand: <%= @product.brand.brand_name %></p>
+  </div>
+  <div class="card-body">
+    <h1><%= @product.product_name %></h1>
+    <p>Category: <%= @product.category.category_name %></p>
+    <p>Price: $<%= @product.price %></p>
+    <p>Model Year: <%= @product.model_year %></p>
+    <div>
+      <h2>Store Inventory</h2>
+      <table class="table">
+        <tbody>
+        <% if @stocks.empty? %>
+        <p>No stock available for this product.</p>
+      <% else %>
+      <thead>
+          <tr>
+            <th>Store Name</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <% @stocks.each do |stock| %>
+          <tr>
+            <td><%= link_to stock.store.store_name, store_path(stock.store) %></td>
+            <td><%= stock.quantity %></td>
+          </tr>
+        <% end %>
+      <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= link_to 'Back' ,products_path, class:"btn btn-primary"%>
+  </div>
+</div>

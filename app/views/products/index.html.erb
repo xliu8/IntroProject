@@ -1,0 +1,27 @@
+<div class='bg-dark  px-1'>
+<table class="table table-dark table-striped table-hover">
+  <thead>
+    <tr >
+      <th >Name</th>
+      <th>Category Name</th>
+      <th>Brand Name</th>
+      <th>Price</th>
+      <th>Model Year</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= link_to product.product_name, product_path(product) %></td>
+      <td><%= product.category.category_name %></td>
+      <td><%= product.brand.brand_name %></td>
+      <td><%= product.price %></td>
+      <td><%= product.model_year %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+  <div class="pagination bg-dark d-flex justify-content-center">
+    <%= paginate @products %>
+  </div>
+</div>
